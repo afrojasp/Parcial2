@@ -69,4 +69,21 @@ self.addEventListener('message', (event) => {
   }
 });
 
+
 // Any other custom service worker logic can go here.
+
+
+
+
+self.addEventListener('fetch', event => {
+  if(event.request.url == 'https://gist.githubusercontent.com/jhonatan89/e379fadf8ed0f5381a2d8f8f3dea90c3/raw/e2bc20df02828d297f99558551e37959ac97a6f8/pokemon-es.json'){
+    const resp = fetch(event.request)
+        .then(resp => {
+          return resp.ok ? resp : localStorage.getItem('pokeEsp');
+        })
+
+  }
+
+  
+  
+})
